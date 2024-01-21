@@ -20,9 +20,9 @@ RUN \
       --strip 1 -C /opt \
   \
   && cd /opt \
-  && CYPRESS_INSTALL_BINARY=0 yarn --frozen-lockfile \
+  && CYPRESS_INSTALL_BINARY=0 yarn --frozen-lockfile --network-timeout 1000000 \
   && yarn build \
-  && yarn install --production --ignore-scripts --prefer-offline \
+  && yarn install --production --ignore-scripts --prefer-offline --network-timeout 1000000 \
   && yarn cache clean \
   \
   && echo "{\"commitTag\": \"${COMMIT_TAG}\"}" > "/opt/committag.json" \
