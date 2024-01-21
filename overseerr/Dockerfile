@@ -10,8 +10,9 @@ ARG OVERSEERR_VERSION=1.33.2
 ENV COMMIT_TAG=v${OVERSEERR_VERSION}
 # hadolint ignore=DL3003,DL3042
 RUN \
-  apk add --no-cache \
-    nginx=1.24.0-r14 \
+  apk add --no-cache --virtual .build-dependencies \
+    build-base=0.5-r3 \
+    python3=3.11.6-r1 \
   \
   && curl -J -L -o /tmp/overseerr.tar.gz \
       "https://github.com/sct/overseerr/archive/v${OVERSEERR_VERSION}.tar.gz" \
@@ -27,8 +28,8 @@ RUN \
   \
   && echo "{\"commitTag\": \"${COMMIT_TAG}\"}" > "/opt/committag.json" \
   \
+  && apk del --no-cache --purge .build-dependencies \
   && rm -f -r \
-    /etc/nginx \
     /opt/.next/cache \
     /opt/server \
     /opt/src \
