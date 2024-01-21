@@ -48,14 +48,6 @@
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
-    },
-    {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStrings": [
-        "ARG OVERSEERR_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "sct/overseerr"
     }
   ]
 }
