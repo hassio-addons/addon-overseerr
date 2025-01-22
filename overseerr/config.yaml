@@ -15,5 +15,7 @@ map:
   - addon_config:rw
   - share:rw
   - media:rw
+discovery:
+  - overseerr
 ports:
   5055/tcp: 5055
