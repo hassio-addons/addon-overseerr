@@ -13,7 +13,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
-        gpg=2.4.7-21+deb13u1+b4 \
+        gpg=2.4.7-21+deb13u1+b5 \
     \
     && mkdir -p /etc/apt/keyrings \
     && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
